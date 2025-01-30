@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo "Building the project..."
+      - mkdir -p artifacts
+      - cp index.html artifacts/
+
+artifacts:
+  files:
+    - artifacts/index.html
+  discard-paths: yes
+  name: my-static-website
