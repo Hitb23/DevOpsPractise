@@ -3,9 +3,13 @@ os: linux
 
 files:
   - source: /
-    destination: /var/www/html  # Copy to Apache root directory
+    destination: /var/www/html  # Ensure the destination exists
 
 hooks:
+  BeforeInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: root
   AfterInstall:
     - location: scripts/restart_server.sh
       timeout: 300
