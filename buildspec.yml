@@ -1,14 +1,18 @@
 version: 0.2
 
 phases:
+  install:
+    commands:
+      - echo "Installing dependencies"
   build:
     commands:
-      - echo "Building the project..."
+      - echo "Building the application"
       - mkdir -p artifacts
-      - cp index.html artifacts/
+      - cp index.html artifacts/  # Copy index.html to artifacts folder
+      - cd artifacts
+      - zip -r deployment-package.zip .  # Create a ZIP file
 
 artifacts:
   files:
-    - artifacts/index.html
+    - artifacts/deployment-package.zip  # Ensure only the ZIP file is stored in S3
   discard-paths: yes
-  name: my-static-website
