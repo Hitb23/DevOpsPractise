@@ -8,11 +8,13 @@ phases:
     commands:
       - echo "Building the application"
       - mkdir -p artifacts
-      - cp index.html artifacts/  # Copy index.html to artifacts folder
+      - cp index.html artifacts/   # Copy index.html
+      - cp appspec.yml artifacts/  # Copy appspec.yml
+      - cp -r scripts artifacts/   # Copy scripts folder
       - cd artifacts
-      - zip -r deployment-package.zip .  # Create a ZIP file
+      - zip -r deployment-package.zip .  # Create ZIP file
 
 artifacts:
   files:
-    - artifacts/deployment-package.zip  # Ensure only the ZIP file is stored in S3
+    - artifacts/deployment-package.zip
   discard-paths: yes
