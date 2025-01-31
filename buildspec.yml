@@ -11,10 +11,9 @@ phases:
       - cp index.html artifacts/   # Copy index.html
       - cp appspec.yml artifacts/  # Copy appspec.yml
       - cp -r scripts artifacts/   # Copy scripts folder
-      - cd artifacts
-      - zip -r deployment-package.zip .  # Create ZIP file
+
 
 artifacts:
   files:
-    - artifacts/deployment-package.zip
+    - artifacts/**
   discard-paths: yes
