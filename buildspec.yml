@@ -4,6 +4,10 @@ phases:
   install:
     commands:
       - echo "Installing dependencies"
+      - echo "whout tee" 
+      - npm install axios
+      - echo "with tee"
+      - npm install snyk-to-html -g 2>&1 | tee >(tr '\n' ' ')
   build:
     commands:
       - echo "Building the application"
