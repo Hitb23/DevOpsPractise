@@ -7,7 +7,8 @@ phases:
       - echo "whout tee" 
       - npm install axios
       - echo "with tee"
-      - npm install snyk-to-html -g 2>&1 | tee >(tr '\n' ' ')
+      - stdbuf -o0 npm install snyk-to-html -g | tee install.log
+      - cat install.log
   build:
     commands:
       - echo "Building the application"
